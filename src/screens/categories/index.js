@@ -1,9 +1,9 @@
 import React from 'react';
-import { View, Text, SafeAreaView } from 'react-native';
+import { View, Text, SafeAreaView, Button } from 'react-native';
 
 import styles from './styles';
 
-const Categories = () => {
+const Categories = ( { navigation }) => {
     return (
         <SafeAreaView style={styles.screen}>
             <View style={styles.screen}>
@@ -11,6 +11,7 @@ const Categories = () => {
                     Categories
                     
                 </Text>
+                <Button tittle="Ir a Productos" onPress={() => navigation.navigate('Products')} />
             </View>
         </SafeAreaView>
     );
