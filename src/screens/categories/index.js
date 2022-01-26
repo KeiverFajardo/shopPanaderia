@@ -11,7 +11,7 @@ const Categories = ( { navigation }) => {
                     Categories
                     
                 </Text>
-                <Button tittle="Ir a Productos" onPress={() => navigation.navigate('Products')} />
+                <Button title="Ir a Productos" onPress={() => navigation.navigate('Products')} />
             </View>
         </SafeAreaView>
     );
