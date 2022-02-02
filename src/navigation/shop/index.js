@@ -4,7 +4,7 @@ import Categories from '../../screens/categories/index';
 import ProductDetail from '../../screens/product-detail/index';
 import Products from '../../screens/products/index';
 import { Platform } from 'react-native';
-import { COLORS } from '../../utils/constants/colors';
+
 
 
 const Stack = createNativeStackNavigator();
@@ -15,9 +15,9 @@ const ShopStackNavigation = () => {
             initialRouteName='Categories'
             screenOptions={{
                 headerStyle: {
-                    backgroundColor: Platform.OS === 'android' ? COLORS.primary : '',
+                    backgroundColor: Platform.OS === 'android' ? "green" : '',
                 },
-                headerTintColor: Platform.OS === 'android' ? 'white' : COLORS.primary,
+                headerTintColor: Platform.OS === 'android' ? 'white' : "green",
                 headerTitleStyle: {
                     fontWeight: 'bold'
                 }

@@ -27,3 +27,7 @@ const ProductDetail = ({navigation, route}) => {
     </SafeAreaView>
   );
 };
+
+
+
+export default ProductDetail;
