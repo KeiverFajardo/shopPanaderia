@@ -6,15 +6,19 @@
  * @flow strict-local
  */
 
-import React from 'react';
-import AppNavigation from './src/navigation/index';
-
-const App= () => {
+ import React from 'react';
+ import AppNavigation from './src/navigation/index';
+ import { Provider } from 'react-redux';
+ import store from './src/store/index';
  
-  return (
-    <AppNavigation/>
-  );
-};
-
-
-export default App;
+ const App = () => {
+   console.log({store})
+   return (
+     <Provider store={store}>
+       <AppNavigation />
+     </Provider>
+   );
+ };
+ 
+ export default App;
+ 

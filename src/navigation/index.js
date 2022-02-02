@@ -1,38 +1,38 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import ShopStackNavigation from './shop';
+import CartStackNavigation from './cart';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
-import Categories from '../screens/categories/index';
-import Details from '../screens/details/index';
-import Products from '../screens/products/index';
-
-
-
-const Stack = createNativeStackNavigator();
+const BottomTabs = createBottomTabNavigator();
 
 const AppNavigation = () => {
     return (
         <NavigationContainer >
-            <Stack.Navigator
-                initialRouteName='Categories'
-                
-            >
-                <Stack.Screen 
-                    name="Categories" 
-                    component={Categories} 
+            <BottomTabs.Navigator initialRouteName='Shop' screenOptions={{
+                headerShown: false,
+            }}>
+                <BottomTabs.Screen
+                    name='Shop'
+                    component={ShopStackNavigation} 
+                    options={{
+                        tabBarIcon: ({ focused }) => (
+                            <Ionicons name='home-outline' size={20} />
+                        )          
+                    }}
+                        
                 />
-
-                <Stack.Screen 
-                    name="Products"
-                    component={Products}
-                    
-                />
-                <Stack.Screen 
-                    name="Details"
-                    component={Details}
-                   
-                />
-            </Stack.Navigator>
+                <BottomTabs.Screen
+                    name='Cart'
+                    component={CartStackNavigation}
+                    options={{
+                        tabBarIcon: ({ focused }) => (
+                            <Ionicons name='cart-outline' size={20} />
+                        )
+                    }} 
+                    />
+            </BottomTabs.Navigator>
         </NavigationContainer>
     )
 }

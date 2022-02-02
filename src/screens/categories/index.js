@@ -1,22 +1,47 @@
 import React from 'react';
-import { View, Text, SafeAreaView, Button } from 'react-native';
-
+import {
+  SafeAreaView,
+  View,
+  FlatList
+} from 'react-native';
+import CategoryItem from '../../components/categories-item/index';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectCategory } from '../../store/actions/category.action';
 import styles from './styles';
 
-const Categories = ( { navigation }) => {
-    return (
-        <SafeAreaView style={styles.screen}>
-            <View style={styles.screen}>
-                <Text>
-                    Categories
-                    
-                </Text>
-                <Button title="Ir a Productos" onPress={() => navigation.navigate('Products')} />
-            </View>
-        </SafeAreaView>
-    );
+const Categories = ({navigation}) => {
+  const categories = useSelector(state => state.categories.categories);
+  const dispatch = useDispatch();
+  
+  const handleSelectedCategory = (item) => {
+   dispatch(selectCategory(item.id));
+   navigation.navigate('Products', 
+     {
+       name: item.title,
+       color: item.color,
+     }
+   );
+ }
+
+ const renderCategories = ({item}) => {
+   return (
+     <CategoryItem item={item} onSelected={handleSelectedCategory} />
+   )
+ }
+
+  return (
+    <SafeAreaView style={styles.container}>
+      <View style={styles.container}>
+        <FlatList
+           data={categories}
+           renderItem={renderCategories}
+           keyExtractor={item => item.id}
+         />
+      </View>
+    </SafeAreaView>
+  );
 };
 
 
 
-export default Categories
+export default Categories;
