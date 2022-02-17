@@ -6,7 +6,7 @@ export const selectBread = (id) => ({
     breadId: id
 });
 
-export const filterBreads = (id) => ({
+export const filterBreads =  (id) => ({
     type: FILTER_BREADS,
     categoryId: id
 })
