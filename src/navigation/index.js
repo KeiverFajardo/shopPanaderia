@@ -4,6 +4,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import ShopStackNavigation from './shop';
 import CartStackNavigation from './cart';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import PlaceNavigator from './PlaceNavigator';
 
 const BottomTabs = createBottomTabNavigator();
 
@@ -29,6 +30,16 @@ const AppNavigation = () => {
                     options={{
                         tabBarIcon: ({ focused }) => (
                             <Ionicons name='cart-outline' size={20} />
+                        )
+                    }} 
+                    />
+
+                <BottomTabs.Screen
+                    name='Cart'
+                    component={PlaceNavigator}
+                    options={{
+                        tabBarIcon: ({ focused }) => (
+                            <Ionicons name='camera-outline' size={20} />
                         )
                     }} 
                     />

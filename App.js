@@ -11,6 +11,15 @@
  import { Provider } from 'react-redux';
  import store from './src/store/index';
  
+
+import { init } from './db';
+
+ init().then(() => {
+  console.log('DB initialized');
+}).catch(err => {
+  console.log('DB initialization failed', err);
+});
+
  const App = () => {
    console.log({store})
    return (
